@@ -1,0 +1,2 @@
+export LAMBDA_FUNC_NAME="daily-billing-notification-slack"
+export FILE_LAMBDA_ZIP=${PWD}/dist/lambda.zip

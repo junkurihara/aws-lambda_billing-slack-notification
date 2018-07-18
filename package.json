@@ -1,0 +1,16 @@
+{
+  "name": "daily-billing-notification-slack",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "zip": "zip -x ./dist/* -r ./dist/lambda.zip ./*",
+    "update": "source lambda_profile && npm run zip && aws lambda update-function-code --function-name ${LAMBDA_FUNC_NAME} --zip-file fileb://${FILE_LAMBDA_ZIP} --publish"
+  },
+  "author": "Jun Kurihara",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.275.1",
+    "node-fetch": "^2.1.2"
+  }
+}
