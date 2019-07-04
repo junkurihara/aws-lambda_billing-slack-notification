@@ -4,18 +4,20 @@ const aws = require('aws-sdk');
 const fetch = require('node-fetch');
 const cw    = new aws.CloudWatch({region: 'us-east-1', endpoint: 'monitoring.us-east-1.amazonaws.com'});
 
-const config = require('./config.js');
+const config = require('./env.json');
+
+const postTitle = config.post_title;
 
 // Slackのチャンネル名を指定。#generalや@ishikunなど。
 // const channel_name = '';
-const channel_name = config.config.channel_name;
+const channel_name = config.channel_name;
 
 // Slack Incoming Webhook URLを指定。
 // const channel_url  = '';
-const channel_url  = config.config.channel_url;
+const channel_url  = config.channel_url;
 
  // サービス名を配列で指定。
-const serviceNames = ['', 'AmazonEC2', 'AmazonRDS', 'AmazonCloudFront', 'AmazonS3', 'AWSKMS', 'APIGateway', 'AWSLambda', 'AmazonCloudWatch'];
+const serviceNames = config.service_names;
 
 
 async function getMetricStatistics(serviceName, startTime, endTime){
@@ -75,7 +77,7 @@ async function postBillingToSlack(bills){
   const message = {
     channel: channel_name,
     attachments: [{
-      title: 'AWS Monthly-Billing Daily Report',
+      title: postTitle,
       text: billingText,
       color: 'good'
     }]

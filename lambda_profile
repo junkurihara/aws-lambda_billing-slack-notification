@@ -1,2 +1,11 @@
 export LAMBDA_FUNC_NAME="daily-billing-notification-slack"
+export HANDLER=index.handler
+export ROLE_ARN="arn:aws:iam::584188463650:role/Lambda_Billing-Notification"
+export RUNTIME=nodejs10.x
+
+export TIMEOUT=10
+export MEMORY=256
+
+
+export ROLE_NAME=Lambda_Billing-Notification
 export FILE_LAMBDA_ZIP=${PWD}/dist/lambda.zip
