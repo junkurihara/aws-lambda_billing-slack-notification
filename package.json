@@ -15,6 +15,6 @@
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.487.0",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   }
 }
